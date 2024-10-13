@@ -35,9 +35,9 @@ Capacity of knapsack: 50
 
 ### Step 2: Maximize Profit
 - Starting with capacity = 50.
-  1. Add Item 1 (10 kg, 60 profit):
-     - Remaining Capacity: 50 - 10 = 40
-     - Total Profit: 60
+  1. `Add Item 1 (10 kg, 60 profit):`
+     -` Remaining Capacity: 50 - 10 = 40`
+     - `Total Profit: 60`
   2. Add Item 2 (20 kg, 100 profit):
      - Remaining Capacity: 40 - 20 = 20
      - Total Profit: 160
