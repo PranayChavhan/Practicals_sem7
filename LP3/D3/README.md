@@ -48,3 +48,9 @@ Let's perform a dry run for the input:
 
 ### Final Output
 Maximum value in knapsack: `240.0`
+
+## Time Complexity (TC)
+The time complexity is O(n log n) due to the sorting step, where n is the number of items.
+
+## Space Complexity (SC)
+The space complexity is O(1) as we are using a constant amount of extra space.

@@ -113,14 +113,3 @@
    The depth of the recursion stack can go up to `n`.
 
  ---
-
- ## How to Run
-
- 1. Compile the Java file using the command:
-    ```
-    javac FibonacciCalculator.java
-    ```
- 2. Run the program with the following command:
-    ```
-    java FibonacciCalculator
-    ```
