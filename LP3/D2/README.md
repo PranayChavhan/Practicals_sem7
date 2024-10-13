@@ -17,20 +17,6 @@ Huffman Encoding is a lossless data compression algorithm. The algorithm assigns
 ## Test Cases
 
 ### Test Case 1:
-**Input:** `"huffman encoding example"`  
-**Expected Output:**  
-Huffman Codes: `{e=01, a=000, f=110, g=1010, h=1000, i=1001, l=1011, m=111, n=11, o=001, p=1101, u=00}`  
-Original text: `huffman encoding example`  
-Encoded text: `100011010111011001101010011101100100111101011100101101001011101`
-
-### Test Case 2:
-**Input:** `"hello world"`  
-**Expected Output:**  
-Huffman Codes: `{d=111, e=1100, h=1010, l=1101, o=100, r=1011, w=001, space=000}`  
-Original text: `hello world`  
-Encoded text: `10101100110110101100110001010100111`
-
-### Test Case 3:
 **Input:** `"abcdef"`  
 **Expected Output:**  
 Huffman Codes: `{a=100, b=101, c=110, d=111, e=000, f=001}`  
@@ -56,13 +42,13 @@ Assign binary codes to characters based on their position in the tree.
 
 | Character | Huffman Code |
 |-----------|--------------|
-| a         | 00           |
-| b         | 01           |
-| c         | 1            |
+| a         | 10           |
+| b         | 11           |
+| c         | 0            |
 
 4. **Encoded Output:**  
 Original text: `"abc"`  
-Encoded text: `00101`
+Encoded text: `10110`
 
 ---
 
