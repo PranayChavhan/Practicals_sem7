@@ -33,7 +33,8 @@ Board size = 4x4
 5. Once a valid arrangement is found for all rows, print the board.
 
 ### Output for 4x4:
-``` _Q__
+``` 
+_Q__
 ___Q
 Q___
 __Q_
@@ -42,4 +43,4 @@ __Q_
 Q___
 ___Q
 _Q__
---------------------------------- ```
+```
