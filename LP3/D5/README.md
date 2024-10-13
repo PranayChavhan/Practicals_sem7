@@ -44,3 +44,10 @@ Q___
 ___Q
 _Q__
 ```
+Multiple solutions are possible, and the program will print each one.
+
+## Complexity Analysis
+
+- **Time Complexity (TC)**: The time complexity of this solution is O(N!), where N is the size of the chessboard. This is because for each row, we have N possible positions, and for each valid position, we proceed recursively to the next row.
+
+- **Space Complexity (SC)**: The space complexity is O(N^2) because we are storing the board as a 2D array of size N x N.
