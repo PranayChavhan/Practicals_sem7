@@ -1,4 +1,4 @@
-package LP3.D3;
+package D3;
 
 import java.util.*;
 

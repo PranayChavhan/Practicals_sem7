@@ -1,4 +1,4 @@
-package LP3.D5;
+package D5;
 
 
 public class Main{
