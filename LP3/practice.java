@@ -16,28 +16,17 @@ public class practice{
 
         int[][] dp = new int[n + 1][capacity + 1];
 
-        // Build the DP table
         for(int i = 0; i <= n; i++){
             for(int w = 0; w <= capacity; w++){
 
-                // Base case: no items or capacity is 0
                 if(i == 0 || w == 0){
                     dp[i][w] = 0;
                 }else if(items[i - 1].weight <= w){
-                    // Include or exclude the item, whichever is more profitable
-
-                    // dp[i][w] = Math.max(
-                    //     items[i - 1].profit + dp[i - 1][w - items[i - 1].weight],
-                    //     dp[i - 1][w]
-                    // );
-
-                    dp[i][w] = Math.max(
+                    dp[i][w] = Math.max( 
                         items[i - 1].profit + dp[i - 1][w - items[i - 1].weight],
                         dp[i - 1][w]
                     );
                 }else{
-
-                    // Excude the item
                     dp[i][w] = dp[i - 1][w];
                 }
             }
