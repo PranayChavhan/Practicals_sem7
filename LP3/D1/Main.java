@@ -1,4 +1,5 @@
- public class Main {
+
+public class Main {
 
     // Iterative approach to calculate Fibonacci
     public static int fibonacciIterative(int n) {

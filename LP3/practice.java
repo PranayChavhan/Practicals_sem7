@@ -1,105 +1,74 @@
-// package LP3;
+import java.util.Scanner;
+
+class Item{
+    int profit;
+    int weight;
+
+    public Item(int profit, int weight){
+        this.profit = profit;
+        this.weight = weight;
+    }
+}
 
 public class practice{
 
+    public static int knapsack(int capacity, Item[] items, int n){
+
+        int[][] dp = new int[n + 1][capacity + 1];
+
+        // Build the DP table
+        for(int i = 0; i <= n; i++){
+            for(int w = 0; w <= capacity; w++){
+
+                // Base case: no items or capacity is 0
+                if(i == 0 || w == 0){
+                    dp[i][w] = 0;
+                }else if(items[i - 1].weight <= w){
+                    // Include or exclude the item, whichever is more profitable
+
+                    // dp[i][w] = Math.max(
+                    //     items[i - 1].profit + dp[i - 1][w - items[i - 1].weight],
+                    //     dp[i - 1][w]
+                    // );
+
+                    dp[i][w] = Math.max(
+                        items[i - 1].profit + dp[i - 1][w - items[i - 1].weight],
+                        dp[i - 1][w]
+                    );
+                }else{
+
+                    // Excude the item
+                    dp[i][w] = dp[i - 1][w];
+                }
+            }
+        }
+
+        return dp[n][capacity];
+    }
+
     public static void main(String[] args){
 
-        int n = 3;
+        Scanner sc = new Scanner(System.in);
 
-        char[][] board = new char[n][n];
+        System.out.print("Enter the number of items: ");
+        int n = sc.nextInt();
+        Item[] items = new Item[n];
+
         for(int i = 0; i < n; i++){
-            for(int j = 0; j < n; j++){
-                board[i][j] = '_';
-            }
+            System.out.println("Enter profit of item " + (i + 1) + ": ");
+            int profit = sc.nextInt();
+
+            System.out.println("Enter weight of item " + (i + 1) + ": ");
+            int weight = sc.nextInt();
+
+            items[i] = new Item(profit, weight);
         }
 
-        System.out.println("Hello");
-        nqueen(board, 0);
+        System.out.println("Enter capacity of knapsack: ");
+        int capacity = sc.nextInt();
+
+        System.out.println("Maximum value in knapsack: " + knapsack(capacity, items, n));
+
+        sc.close();
     }
-
-    private static void nqueen(char[][] board, int row){
-        int n = board.length;
-
-        if(row == n){
-            for(int i = 0; i < n; i++){
-                for(int j = 0; j < n; j++){
-                    System.out.print(board[i][j]);
-                }
-                System.out.println();
-            }
-
-            System.out.println("---------------------------");
-            return;
-        }
-
-        for(int j = 0; j < n; j++){
-            if(isSafe(board, row, j)){
-                board[row][j] = 'Q';
-                nqueen(board, row+1);
-                board[row][j] = '_'; //Backtracking
-            }
-        }
-
-    }
-
-    private static boolean isSafe(char[][] board, int row, int col){
-        int n = board.length;
-
-        // check row
-        for(int j = 0; j < n; j++){
-            if(board[row][j] == 'Q') return false;
-        }
-
-
-        // check col
-        for(int i = 0; i < n; i++){
-            if(board[i][col] == 'Q') return false;
-        }
-
-
-        // check north-east
-        int i = row;
-        int j = col;
-        while(i >= 0 && j < n){
-            if(board[i][j] == 'Q') return false;
-            i--;
-            j++;
-        }
-
-
-        // check south-east
-        i = row;
-        j = col;
-        while(i < n && j < n){
-            if(board[i][j] == 'Q') return false;
-            i++;
-            j++;
-        }
-
-
-        // check south-west
-        i = row;
-        j = col;
-
-        while(i < n && j >= 0){
-            if(board[i][j] == 'Q') return false;
-            i++;
-            j--;
-        }
-
-
-        // check north-west
-
-        i = row;
-        j = col;
-
-        while(i >= 0 && j >= 0){
-            if(board[i][j] == 'Q') return false;
-        }
-
-
-        return true;
-    }
-
-
 }
